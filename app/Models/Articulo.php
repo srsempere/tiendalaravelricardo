@@ -21,4 +21,9 @@ class Articulo extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
+
+    public function iva(): BelongsTo
+    {
+        return $this->belongsTo(Iva::class);
+    }
 }

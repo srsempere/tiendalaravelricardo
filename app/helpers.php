@@ -1,10 +1,5 @@
 <?php
 
-function dinero($s)
-{
-    return number_format($s, 2, ',', ' ') . ' €';
-}
-
 function truncar($s, $long = 20)
 {
     if (mb_strlen($s) > $long) {
@@ -12,4 +7,14 @@ function truncar($s, $long = 20)
     }
 
     return $s;
+}
+
+function dinero($s)
+{
+    return number_format($s, 2, ',', ' ') . ' €';
+}
+
+function porcentaje($s)
+{
+    return number_format($s, 0) . ' %';
 }
