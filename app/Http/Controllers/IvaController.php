@@ -32,10 +32,7 @@ class IvaController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'tipo' => 'required|string|in:normal, reducido, super_reducido',
-            'por' => 'required|integer|min:0|max:100',
-        ]);
+        $validated = $this->validar($request);
         Iva::create($validated);
         return redirect()->route('ivas.index');
     }
@@ -55,6 +52,7 @@ class IvaController extends Controller
     {
         return view('ivas.edit', [
             'iva' => $iva,
+            'ivas' => Iva::all(),
         ]);
     }
 
@@ -63,7 +61,9 @@ class IvaController extends Controller
      */
     public function update(Request $request, Iva $iva)
     {
-        //
+        $validated = $this->validar($request, $iva);
+        $iva->update($validated);
+        return redirect()->route('ivas.index');
     }
 
     /**
@@ -73,5 +73,19 @@ class IvaController extends Controller
     {
         $iva->delete();
         return redirect()->route('ivas.index');
+    }
+
+    private function validar(Request $request, Iva $iva = null)
+    {
+        $tipoRule = 'required|string|unique:ivas,tipo';
+        if ($iva) {
+            // Excluye el registro actual de la validación unique
+            $tipoRule .= ',' . $iva->id;
+        }
+
+        return $request->validate([
+            'tipo' => $tipoRule,
+            'por' => 'required|integer|min:0|max:100',
+        ]);
     }
 }

@@ -15,7 +15,7 @@ class Articulo extends Model
      *
      * @var array
      */
-    protected $fillable = ['denominacion', 'precio', 'categoria_id'];
+    protected $fillable = ['denominacion', 'precio', 'categoria_id', 'iva_id'];
 
     public function categoria(): BelongsTo
     {

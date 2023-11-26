@@ -10,6 +10,9 @@
                         Precio
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Iva
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Categoría
                     </th>
                     <th scope="col" class="px-6 py-3" colspan="2">
@@ -25,6 +28,9 @@
                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ dinero($articulo->precio) }}
+                        </th>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ ($articulo->iva->por . '%') }}
                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <a href="{{ route('categorias.edit', ['categoria' => $articulo->categoria]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">

@@ -12,11 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
-                        Categorías
-                    </x-nav-link>
                     <x-nav-link :href="route('articulos.index')" :active="request()->routeIs('articulos.index')">
                         Artículos
+                    </x-nav-link>
+                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                        Categorías
                     </x-nav-link>
                     <x-nav-link :href="route('ivas.index')" :active="request()->routeIs('ivas.index')">
                         Ivas
