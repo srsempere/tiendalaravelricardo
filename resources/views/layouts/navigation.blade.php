@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('articulos.index')" :active="request()->routeIs('articulos.index')">
                         Artículos
                     </x-nav-link>
+                    <x-nav-link :href="route('ivas.index')" :active="request()->routeIs('ivas.index')">
+                        Ivas
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -45,7 +45,7 @@ class IvaController extends Controller
      */
     public function show(Iva $iva)
     {
-        //
+      //
     }
 
     /**
@@ -53,7 +53,9 @@ class IvaController extends Controller
      */
     public function edit(Iva $iva)
     {
-        //
+        return view('ivas.edit', [
+            'iva' => $iva,
+        ]);
     }
 
     /**
